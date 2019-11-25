@@ -9,9 +9,9 @@ class APISerializer(serializers.Serializer):
     email = serializers.EmailField(max_length=50)
     
     def create(self, data):
-        return APIModel.objects.create(**validated_data)
+        return APIModel.objects.create(**data)
     
-    def update(self, data, instance):
+    def update(self, instance, data):
         instance.name = data.get('name')
         instance.address = data.get('address')
         instance.area = data.get('area')
